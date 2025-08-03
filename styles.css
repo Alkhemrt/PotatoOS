@@ -1,0 +1,978 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+    user-select: none;
+}
+
+body {
+    background-color: #006060;
+    background-image: linear-gradient(135deg, #008080 25%, #006666 25%, #006666 50%, #008080 50%, #008080 75%, #006666 75%, #006666 100%);
+    background-size: 40px 40px;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+/* CRT Effect */
+.crt-effect::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 1000;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+/* Desktop */
+#desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    overflow: hidden;
+}
+
+/* Taskbar */
+#taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+    border-top: 2px solid #dfdfdf;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+#start-button {
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #1080d0, #0060a0);
+    border: none;
+    border-right: 1px solid #004070;
+    border-bottom: 1px solid #004070;
+    border-top: 2px solid #60b0f0;
+    border-left: 2px solid #60b0f0;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px #000060;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#start-button:active {
+    background: linear-gradient(to bottom, #0060a0, #1080d0);
+    border-top: 1px solid #004070;
+    border-left: 1px solid #004070;
+    border-right: 2px solid #60b0f0;
+    border-bottom: 2px solid #60b0f0;
+}
+
+#start-button img {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+#taskbar-apps {
+    flex-grow: 1;
+    display: flex;
+    height: 100%;
+    padding-left: 5px;
+    gap: 2px;
+}
+
+.taskbar-app {
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: none;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taskbar-app.active {
+    background: linear-gradient(to bottom, #000080, #000060);
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+#taskbar-clock {
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+    border: none;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Start Menu */
+#start-menu {
+    position: absolute;
+    bottom: 40px;
+    left: 2px;
+    width: 220px;
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    display: none;
+    z-index: 101;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+#start-menu-header {
+    background: linear-gradient(to right, #000080, #1080d0);
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-shadow: 1px 1px 1px black;
+}
+
+#start-menu-header img {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+.start-menu-item {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.start-menu-item:hover {
+    background: linear-gradient(to right, #000080, #0060a0);
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.start-menu-item img {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+.start-menu-separator {
+    height: 2px;
+    background: linear-gradient(to right, #808080, #c0c0c0, #808080);
+    margin: 4px 0;
+    border-top: 1px solid #ffffff;
+}
+
+/* Desktop Icons */
+.desktop-icon {
+    position: absolute;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 5px;
+    font-size: 12px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    word-break: break-word;
+    height: auto;
+    min-height: 70px;
+    box-sizing: content-box;
+    border-radius: 3px;
+}
+
+.desktop-icon:hover {
+    background-color: rgba(0, 0, 128, 0.4);
+    backdrop-filter: brightness(1.2);
+}
+
+.desktop-icon.selected {
+    background-color: rgba(0, 0, 128, 0.6);
+    backdrop-filter: brightness(1.1);
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+    border-radius: 50%;
+    background: #ffcc00;
+    box-shadow: 0 0 0 2px #000080, 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Windows */
+.window {
+    position: absolute;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    min-width: 400px;
+    min-height: 300px;
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+}
+
+.window.active {
+    z-index: 11;
+}
+
+.window-header {
+    background: linear-gradient(to right, #000080, #1080d0);
+    color: white;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    cursor: move;
+    text-shadow: 1px 1px 1px black;
+}
+
+.window-header img {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+.window-title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.window-controls {
+    display: flex;
+}
+
+.window-control {
+    width: 22px;
+    height: 22px;
+    margin-left: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    color: black;
+}
+
+.window-control:active {
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.window-content {
+    flex-grow: 1;
+    padding: 8px;
+    overflow: auto;
+    position: relative;
+    background: white;
+    border: 1px solid #808080;
+    margin: 2px;
+}
+
+.window-statusbar {
+    height: 22px;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border-top: 2px solid #808080;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 12px;
+}
+
+/* Resize handles */
+.resize-handle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+    border: 1px solid #808080;
+    z-index: 12;
+}
+
+.resize-handle-bottom-right {
+    right: 0;
+    bottom: 0;
+    cursor: nwse-resize;
+}
+
+/* Menu Bar */
+.menu-bar {
+    display: flex;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border-bottom: 2px solid #808080;
+    padding: 3px 0;
+}
+
+.menu-item {
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.menu-item:hover {
+    background: linear-gradient(to bottom, #000080, #0060a0);
+    color: white;
+}
+
+/* Context Menu */
+#context-menu {
+    position: absolute;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    display: none;
+    flex-direction: column;
+    z-index: 200;
+    min-width: 180px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+}
+
+.context-menu-item {
+    padding: 6px 25px 6px 35px;
+    cursor: pointer;
+    position: relative;
+    font-size: 13px;
+}
+
+.context-menu-item:hover {
+    background: linear-gradient(to right, #000080, #0060a0);
+    color: white;
+}
+
+.context-menu-item img {
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+.context-menu-separator {
+    height: 2px;
+    background: linear-gradient(to right, #808080, #c0c0c0, #808080);
+    margin: 4px 0;
+    border-top: 1px solid #ffffff;
+}
+
+/* Notepad */
+#notepad-textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+    background-color: white;
+    border: 1px solid #808080;
+    padding: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Terminal */
+#terminal-output {
+    width: 100%;
+    height: calc(100% - 30px);
+    background-color: black;
+    color: #c0c0c0;
+    font-family: 'Courier New', monospace;
+    padding: 8px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+#terminal-input {
+    width: calc(100% - 10px);
+    margin-top: 5px;
+    background-color: black;
+    color: #c0c0c0;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #808080;
+    padding: 4px;
+    font-size: 14px;
+}
+
+/* Paint */
+#paint-canvas-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#paint-toolbar {
+    display: flex;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.paint-tool {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.paint-tool.selected {
+    background: linear-gradient(to bottom, #000080, #0060a0);
+    color: white;
+}
+
+#paint-color-picker {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    cursor: pointer;
+}
+
+#paint-canvas {
+    background-color: white;
+    border: 1px solid #808080;
+    flex-grow: 1;
+    cursor: crosshair;
+}
+
+/* File Explorer */
+#explorer-content {
+    display: flex;
+    height: 100%;
+}
+
+#explorer-sidebar {
+    width: 160px;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border-right: 2px solid #808080;
+    padding: 8px;
+    overflow-y: auto;
+}
+
+.explorer-folder {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.explorer-folder:hover {
+    background: linear-gradient(to right, #000080, #0060a0);
+    color: white;
+}
+
+.explorer-folder img {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+}
+
+#explorer-main {
+    flex-grow: 1;
+    padding: 8px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    grid-gap: 12px;
+}
+
+.explorer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 12px;
+    box-sizing: content-box;
+    width: 80px;
+    border-radius: 3px;
+}
+
+.explorer-item:hover {
+    background-color: rgba(0, 0, 128, 0.3);
+    backdrop-filter: brightness(1.1);
+}
+
+.explorer-item img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+    border-radius: 50%;
+    background: #ffcc00;
+    box-shadow: 0 0 0 2px #000080, 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* TaterNet Explorer */
+#browser-toolbar {
+    display: flex;
+    margin-bottom: 8px;
+    gap: 3px;
+}
+
+.browser-button {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#browser-address {
+    flex-grow: 1;
+    padding: 4px 8px;
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+}
+
+#browser-go {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#browser-content {
+    width: 100%;
+    height: calc(100% - 36px);
+    background-color: white;
+    border: 1px solid #808080;
+    overflow: auto;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+#browser-content h1 {
+    color: #000080;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+#browser-content p {
+    margin-bottom: 10px;
+}
+
+#browser-content a {
+    color: #0000ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#browser-content ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+#browser-content li {
+    margin-bottom: 5px;
+}
+
+/* Games */
+#doom-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+#doom-canvas {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+#minespudder-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+}
+
+#minespudder-controls {
+    display: flex;
+    margin-bottom: 12px;
+    gap: 20px;
+    align-items: center;
+}
+
+#minespudder-counter {
+    width: 60px;
+    height: 30px;
+    background-color: black;
+    color: red;
+    font-family: monospace;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+#minespudder-face {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#minespudder-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 30px);
+    grid-gap: 2px;
+}
+
+.minespudder-cell {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.minespudder-cell.revealed {
+    border: 1px solid #808080;
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+}
+
+.minespudder-cell.flagged {
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+}
+
+.minespudder-cell.mine {
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    color: red;
+}
+
+#sphere-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+#sphere-canvas {
+    width: 300px;
+    height: 300px;
+}
+
+/* Task Manager */
+#task-manager-tabs {
+    display: flex;
+    border-bottom: 2px solid #808080;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+}
+
+.task-manager-tab {
+    padding: 6px 12px;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom: none;
+    margin-right: 2px;
+    font-size: 13px;
+}
+
+.task-manager-tab.active {
+    background: linear-gradient(to bottom, #000080, #0060a0);
+    color: white;
+    border-bottom: 2px solid #000080;
+    margin-bottom: -2px;
+}
+
+#task-manager-content {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.task-manager-list {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.task-manager-list th {
+    background: linear-gradient(to bottom, #000080, #0060a0);
+    color: white;
+    text-align: left;
+    padding: 4px 8px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.task-manager-list td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #808080;
+}
+
+.task-manager-list tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.task-manager-list button {
+    padding: 2px 8px;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.task-manager-list button:active {
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+/* Mashed Potato Screen */
+#bsod {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000080;
+    color: white;
+    font-family: 'Courier New', monospace;
+    padding: 30px;
+    z-index: 10000;
+    display: none;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+#bsod-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ff0000;
+    text-shadow: 2px 2px 2px black;
+}
+
+#bsod-message {
+    flex-grow: 1;
+    white-space: pre-wrap;
+    font-size: 16px;
+}
+
+#bsod-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #c0c0c0;
+}
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #000060, #000080);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    font-family: 'Courier New', monospace;
+}
+
+#splash-logo {
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffff00;
+    text-shadow: 3px 3px 3px black;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#splash-subtitle {
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 2px black;
+}
+
+#splash-loading {
+    width: 300px;
+    height: 24px;
+    background-color: #000080;
+    border: 2px solid white;
+    padding: 2px;
+}
+
+#splash-progress {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #ffff00, #ffcc00);
+    transition: width 0.1s;
+}
+
+#splash-press-esc {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #c0c0c0;
+    text-shadow: 1px 1px 1px black;
+}
+
+/* Screensaver */
+#screensaver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, #000000, #000040);
+    z-index: 9999;
+    display: none;
+}
+
+.flying-potato {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffcc00;
+    animation: flying-potato 10s linear infinite;
+}
+
+@keyframes flying-potato {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(calc(100vw - 50px), 100px) rotate(90deg);
+    }
+    50% {
+        transform: translate(calc(100vw - 50px), calc(100vh - 50px)) rotate(180deg);
+    }
+    75% {
+        transform: translate(0, calc(100vh - 50px)) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background-color: #ffffe1;
+    border: 1px solid black;
+    padding: 4px 8px;
+    font-size: 12px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PotatoOS by SpudSoft</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="crt-effect">
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div id="splash-logo">PotatoOS</div>
+        <div id="splash-subtitle">Loading system components...</div>
+        <div id="splash-loading">
+            <div id="splash-progress"></div>
+        </div>
+        <div id="splash-press-esc">Press ESC to skip</div>
+    </div>
+    
+    <!-- Desktop -->
+    <div id="desktop">
+        <!-- Desktop Icons - Arranged horizontally with proper spacing -->
+        <div class="desktop-icon" style="top: 20px; left: 20px;" data-window="my-spudputer">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><path d="M16,6 L28,26 L4,26 Z" fill="%23a0a000"/><circle cx="16" cy="16" r="4" fill="%23808000"/></svg>' alt="Spudputer">
+            <span>Spudputer</span>
+        </div>
+        
+        <div class="desktop-icon" style="top: 20px; left: 120px;" data-window="taternet-explorer">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><path d="M16,6 L28,26 L4,26 Z" fill="%23a0a000"/><circle cx="16" cy="16" r="4" fill="%23808000"/></svg>' alt="TaterNet Explorer">
+            <span>TaterNet Explorer</span>
+        </div>
+        
+        <div class="desktop-icon" style="top: 20px; left: 220px;" data-window="mashed-notepad">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><rect x="4" y="4" width="24" height="24" fill="white"/><rect x="8" y="8" width="16" height="2" fill="%23000080"/><rect x="8" y="12" width="16" height="2" fill="%23000080"/><rect x="8" y="16" width="16" height="2" fill="%23000080"/><rect x="8" y="20" width="16" height="2" fill="%23000080"/></svg>' alt="Mashed Notepad">
+            <span>Mashed Notepad</span>
+        </div>
+        
+        <div class="desktop-icon" style="top: 20px; left: 320px;" data-window="tuber-paint">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><rect x="4" y="4" width="24" height="24" fill="white"/><path d="M10,10 L20,20 M20,10 L10,20" stroke="%23000080" stroke-width="2"/></svg>' alt="Tuber Paint">
+            <span>Tuber Paint</span>
+        </div>
+        
+        <div class="desktop-icon" style="top: 20px; left: 420px;" data-window="spuddos-terminal">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><rect x="4" y="4" width="24" height="24" fill="black"/><rect x="8" y="8" width="16" height="2" fill="%23a0a000"/><rect x="8" y="12" width="16" height="2" fill="%23a0a000"/><rect x="8" y="16" width="16" height="2" fill="%23a0a000"/><rect x="8" y="20" width="16" height="2" fill="%23a0a000"/></svg>' alt="SpudDOS Terminal">
+            <span>SpudDOS Terminal</span>
+        </div>
+        
+        <div class="desktop-icon" style="top: 100px; left: 20px;" data-window="potato-exe">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><path d="M16,6 L28,26 L4,26 Z" fill="%23a0a000"/><circle cx="16" cy="16" r="4" fill="%23808000"/></svg>' alt="POTATO.EXE">
+            <span>POTATO.EXE</span>
+        </div>
+        
+        <div class="desktop-icon" style="top: 100px; left: 120px;" data-window="minespudder">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><rect x="4" y="4" width="24" height="24" fill="%23c0c0c0"/><rect x="8" y="8" width="4" height="4" fill="%23000080"/><rect x="14" y="8" width="4" height="4" fill="%23000080"/><rect x="20" y="8" width="4" height="4" fill="%23000080"/><rect x="8" y="14" width="4" height="4" fill="%23000080"/><rect x="14" y="14" width="4" height="4" fill="%23a0a000"/><rect x="20" y="14" width="4" height="4" fill="%23000080"/><rect x="8" y="20" width="4" height="4" fill="%23000080"/><rect x="14" y="20" width="4" height="4" fill="%23000080"/><rect x="20" y="20" width="4" height="4" fill="%23000080"/></svg>' alt="Minespudder">
+            <span>Minespudder</span>
+        </div>
+        
+        <div class="desktop-icon" style="top: 100px; left: 220px;" data-window="sphere">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><circle cx="16" cy="16" r="12" fill="%23a0a000"/></svg>' alt="Sphere">
+            <span>Sphere</span>
+        </div>
+        
+        <!-- Windows -->
+        <div class="window" id="my-spudputer" style="width: 600px; height: 400px; top: 100px; left: 150px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="Spudputer">
+                    Spudputer
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('my-spudputer')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('my-spudputer')">□</div>
+                    <div class="window-control" onclick="closeWindow('my-spudputer')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('file-menu', this)">File</div>
+                <div class="menu-item" onclick="showMenu('edit-menu', this)">Edit</div>
+                <div class="menu-item" onclick="showMenu('view-menu', this)">View</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="explorer-content">
+                    <div id="explorer-sidebar">
+                        <div class="explorer-folder" onclick="openFolder('root-vegetables')">
+                            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M2,3 L6,3 L8,5 L14,5 L14,13 L2,13 Z" fill="%23a0a000"/></svg>' alt="Folder">
+                            Root Vegetables
+                        </div>
+                        <div class="explorer-folder" onclick="openFolder('starch-cache')">
+                            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www/w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M2,3 L6,3 L8,5 L14,5 L14,13 L2,13 Z" fill="%23a0a000"/></svg>' alt="Folder">
+                            Starch Cache
+                        </div>
+                        <div class="explorer-folder" onclick="openFolder('mashed-documents')">
+                            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M2,3 L6,3 L8,5 L14,5 L14,13 L2,13 Z" fill="%23a0a000"/></svg>' alt="Folder">
+                            Mashed Documents
+                        </div>
+                        <div class="explorer-folder" onclick="openFolder('fried-settings')">
+                            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M2,3 L6,3 L8,5 L14,5 L14,13 L2,13 Z" fill="%23a0a000"/></svg>' alt="Folder">
+                            Fried Settings
+                        </div>
+                    </div>
+                    <div id="explorer-main">
+                        <div class="explorer-item" onclick="openWindow('mashed-notepad')">
+                            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><rect x="4" y="4" width="24" height="24" fill="white"/><rect x="8" y="8" width="16" height="2" fill="%23000080"/><rect x="8" y="12" width="16" height="2" fill="%23000080"/><rect x="8" y="16" width="16" height="2" fill="%23000080"/><rect x="8" y="20" width="16" height="2" fill="%23000080"/></svg>' alt="Document">
+                            <span>Readme.txt</span>
+                        </div>
+                        <div class="explorer-item" onclick="openSystemInfo()">
+                            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><path d="M16,6 L28,26 L4,26 Z" fill="%23a0a000"/><circle cx="16" cy="16" r="4" fill="%23808000"/></svg>' alt="System">
+                            <span>System</span>
+                        </div>
+                        <div class="explorer-item" onclick="openDriveInfo()">
+                            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23000080"/><path d="M6,6 L26,6 L26,26 L6,26 Z" fill="%23a0a000"/><rect x="10" y="10" width="12" height="12" fill="%23808000"/></svg>' alt="Drive">
+                            <span>Spud Drive (C:)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="window-statusbar">
+                <span>3 objects</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <div class="window" id="taternet-explorer" style="width: 600px; height: 400px; top: 120px; left: 170px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="TaterNet Explorer">
+                    TaterNet Explorer
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('taternet-explorer')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('taternet-explorer')">□</div>
+                    <div class="window-control" onclick="closeWindow('taternet-explorer')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('file-menu', this)">File</div>
+                <div class="menu-item" onclick="showMenu('edit-menu', this)">Edit</div>
+                <div class="menu-item" onclick="showMenu('view-menu', this)">View</div>
+                <div class="menu-item" onclick="showMenu('favorites-menu', this)">Favorites</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="browser-toolbar">
+                    <div class="browser-button" title="Back" onclick="browserBack()">←</div>
+                    <div class="browser-button" title="Forward" onclick="browserForward()">→</div>
+                    <div class="browser-button" title="Stop" onclick="browserStop()">■</div>
+                    <div class="browser-button" title="Refresh" onclick="browserRefresh()">↻</div>
+                    <div class="browser-button" title="Home" onclick="browserHome()">⌂</div>
+                    <input type="text" id="browser-address" value="http://www.spudnet.spud/">
+                    <div class="browser-button" id="browser-go" title="Go" onclick="navigateBrowser()">→</div>
+                </div>
+                <div id="browser-content">
+                    <h1>Welcome to TaterNet Explorer</h1>
+                    <p>Your gateway to the SpudNet!</p>
+                    <p>Enter a URL above and click Go to browse the internet.</p>
+                    <p>Try these websites:</p>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('http://www.spudnet.spud/')">SpudNet Home</a> - The potato-powered search engine</li>
+                        <li><a href="#" onclick="navigateTo('http://wiki.spudnet.spud/')">Spudpedia</a> - The potato encyclopedia</li>
+                        <li><a href="#" onclick="navigateTo('http://tube.spudnet.spud/')">SpudTube</a> - Video sharing for potatoes</li>
+                        <li><a href="#" onclick="navigateTo('http://shop.spudnet.spud/')">SpudMart</a> - Buy potato products</li>
+                        <li><a href="#" onclick="navigateTo('http://news.spudnet.spud/')">SpudNews</a> - Latest potato news</li>
+                        <li><a href="#" onclick="navigateTo('http://facts.spudnet.spud/')">SpudFacts</a> - Random potato knowledge</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="window-statusbar">
+                <span>Done</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <div class="window" id="mashed-notepad" style="width: 500px; height: 400px; top: 140px; left: 190px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="white"/><rect x="4" y="4" width="8" height="1" fill="%23000080"/><rect x="4" y="6" width="8" height="1" fill="%23000080"/><rect x="4" y="8" width="8" height="1" fill="%23000080"/><rect x="4" y="10" width="8" height="1" fill="%23000080"/></svg>' alt="Mashed Notepad">
+                    Mashed Notepad - Untitled.txt
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('mashed-notepad')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('mashed-notepad')">□</div>
+                    <div class="window-control" onclick="closeWindow('mashed-notepad')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('file-menu', this)">File</div>
+                <div class="menu-item" onclick="showMenu('edit-menu', this)">Edit</div>
+                <div class="menu-item" onclick="showMenu('format-menu', this)">Format</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <textarea id="notepad-textarea" spellcheck="false">Welcome to Mashed Notepad!
+
+Type your text here.
+
+This is a simple text editor for PotatoOS by SpudSoft.
+
+SpudSoft was founded in 1982 by Sir Spuddington III, a visionary entrepreneur
+who believed that potatoes could power the computing revolution. 
+
+Our mission: "To tuberfy the world one spud at a time."
+
+Fun fact: The first version of PotatoOS was actually written on potato skins
+using vegetable ink!</textarea>
+            </div>
+            <div class="window-statusbar">
+                <span>Ln 4, Col 1</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <div class="window" id="tuber-paint" style="width: 500px; height: 400px; top: 160px; left: 210px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="white"/><path d="M4,4 L12,12 M12,4 L4,12" stroke="%23000080" stroke-width="2"/></svg>' alt="Tuber Paint">
+                    Tuber Paint - Untitled.bmp
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('tuber-paint')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('tuber-paint')">□</div>
+                    <div class="window-control" onclick="closeWindow('tuber-paint')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('file-menu', this)">File</div>
+                <div class="menu-item" onclick="showMenu('edit-menu', this)">Edit</div>
+                <div class="menu-item" onclick="showMenu('view-menu', this)">View</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="paint-canvas-container">
+                    <div id="paint-toolbar">
+                        <div class="paint-tool selected" data-tool="pencil" title="Pencil">✏️</div>
+                        <div class="paint-tool" data-tool="brush" title="Brush">🖌️</div>
+                        <div class="paint-tool" data-tool="eraser" title="Eraser">🧽</div>
+                        <div class="paint-tool" data-tool="line" title="Line">📏</div>
+                        <div class="paint-tool" data-tool="rectangle" title="Rectangle">⬛</div>
+                        <div class="paint-tool" data-tool="ellipse" title="Ellipse">⚪</div>
+                        <input type="color" id="paint-color-picker" value="#000000">
+                    </div>
+                    <canvas id="paint-canvas" width="464" height="284"></canvas>
+                </div>
+            </div>
+            <div class="window-statusbar">
+                <span>512 x 384 pixels</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <div class="window" id="spuddos-terminal" style="width: 500px; height: 400px; top: 180px; left: 230px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="black"/><rect x="4" y="4" width="8" height="1" fill="%23a0a000"/><rect x="4" y="6" width="8" height="1" fill="%23a0a000"/><rect x="4" y="8" width="8" height="1" fill="%23a0a000"/><rect x="4" y="10" width="8" height="1" fill="%23a0a000"/></svg>' alt="SpudDOS Terminal">
+                    SpudDOS Terminal
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('spuddos-terminal')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('spuddos-terminal')">□</div>
+                    <div class="window-control" onclick="closeWindow('spuddos-terminal')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('spud-menu', this)">Spud</div>
+                <div class="menu-item" onclick="showMenu('edit-menu', this)">Edit</div>
+                <div class="menu-item" onclick="showMenu('terminal-menu', this)">Terminal</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="terminal-output">SpudDOS Terminal [Version 5.0.2195]
+(c) 1998 SpudSoft Corp. All rights reserved.
+
+C:\> </div>
+                <input type="text" id="terminal-input" autocomplete="off">
+            </div>
+            <div class="window-statusbar">
+                <span>Ready</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <div class="window" id="potato-exe" style="width: 640px; height: 400px; top: 200px; left: 250px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="POTATO.EXE">
+                    POTATO.EXE
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('potato-exe')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('potato-exe')">□</div>
+                    <div class="window-control" onclick="closeWindow('potato-exe')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('game-menu', this)">Game</div>
+                <div class="menu-item" onclick="showMenu('options-menu', this)">Options</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="doom-container">
+                    <canvas id="doom-canvas"></canvas>
+                </div>
+            </div>
+            <div class="window-statusbar">
+                <span>WASD to move | Arrow keys to look around</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <div class="window" id="minespudder" style="width: 300px; height: 400px; top: 240px; left: 290px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="%23c0c0c0"/><rect x="4" y="4" width="2" height="2" fill="%23000080"/><rect x="7" y="4" width="2" height="2" fill="%23000080"/><rect x="10" y="4" width="2" height="2" fill="%23000080"/><rect x="4" y="7" width="2" height="2" fill="%23000080"/><rect x="7" y="7" width="2" height="2" fill="%23a0a000"/><rect x="10" y="7" width="2" height="2" fill="%23000080"/><rect x="4" y="10" width="2" height="2" fill="%23000080"/><rect x="7" y="10" width="2" height="2" fill="%23000080"/><rect x="10" y="10" width="2" height="2" fill="%23000080"/></svg>' alt="Minespudder">
+                    Minespudder
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('minespudder')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('minespudder')">□</div>
+                    <div class="window-control" onclick="closeWindow('minespudder')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('game-menu', this)">Game</div>
+                <div class="menu-item" onclick="showMenu('options-menu', this)">Options</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="minespudder-container">
+                    <div id="minespudder-controls">
+                        <div id="minespudder-counter">010</div>
+                        <div id="minespudder-face" onclick="resetMinespudder()">😊</div>
+                    </div>
+                    <div id="minespudder-grid"></div>
+                </div>
+            </div>
+            <div class="window-statusbar">
+                <span>Beginner | 10 mines</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <div class="window" id="sphere" style="width: 400px; height: 400px; top: 260px; left: 310px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><circle cx="8" cy="8" r="6" fill="%23a0a000"/></svg>' alt="Sphere">
+                    Sphere
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('sphere')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('sphere')">□</div>
+                    <div class="window-control" onclick="closeWindow('sphere')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('view-menu', this)">View</div>
+                <div class="menu-item" onclick="showMenu('options-menu', this)">Options</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="sphere-container">
+                    <canvas id="sphere-canvas"></canvas>
+                </div>
+            </div>
+            <div class="window-statusbar">
+                <span>Rotating sphere</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+        
+        <!-- Task Manager -->
+        <div class="window" id="task-manager" style="width: 400px; height: 300px; top: 150px; left: 200px; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="white"/><rect x="4" y="4" width="8" height="1" fill="%23000080"/><rect x="4" y="6" width="8" height="1" fill="%23000080"/><rect x="4" y="8" width="8" height="1" fill="%23000080"/><rect x="4" y="10" width="8" height="1" fill="%23000080"/></svg>' alt="Task Manager">
+                    Spud Task Manager
+                </div>
+                <div class="window-controls">
+                    <div class="window-control" onclick="minimizeWindow('task-manager')">_</div>
+                    <div class="window-control" onclick="maximizeWindow('task-manager')">□</div>
+                    <div class="window-control" onclick="closeWindow('task-manager')">X</div>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <div class="menu-item" onclick="showMenu('file-menu', this)">File</div>
+                <div class="menu-item" onclick="showMenu('options-menu', this)">Options</div>
+                <div class="menu-item" onclick="showMenu('help-menu', this)">Help</div>
+            </div>
+            <div class="window-content">
+                <div id="task-manager-tabs">
+                    <div class="task-manager-tab active" onclick="switchTaskManagerTab('applications')">Applications</div>
+                    <div class="task-manager-tab" onclick="switchTaskManagerTab('processes')">Processes</div>
+                    <div class="task-manager-tab" onclick="switchTaskManagerTab('performance')">Performance</div>
+                </div>
+                <div id="task-manager-content">
+                    <table class="task-manager-list">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Spudputer</td>
+                                <td>Running</td>
+                                <td><button onclick="closeWindow('my-spudputer')">End Task</button></td>
+                            </tr>
+                            <tr>
+                                <td>TaterNet Explorer</td>
+                                <td>Running</td>
+                                <td><button onclick="closeWindow('taternet-explorer')">End Task</button></td>
+                            </tr>
+                            <tr>
+                                <td>Mashed Notepad</td>
+                                <td>Running</td>
+                                <td><button onclick="closeWindow('mashed-notepad')">End Task</button></td>
+                            </tr>
+                            <tr>
+                                <td>SpudDOS Terminal</td>
+                                <td>Running</td>
+                                <td><button onclick="closeWindow('spuddos-terminal')">End Task</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="window-statusbar">
+                <span>4 processes</span>
+            </div>
+            <div class="resize-handle resize-handle-bottom-right"></div>
+        </div>
+    </div>
+    
+    <!-- Taskbar -->
+    <div id="taskbar">
+        <button id="start-button">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="Start">
+            Start
+        </button>
+        <div id="taskbar-apps"></div>
+        <div id="taskbar-clock">12:00 PM</div>
+    </div>
+    
+    <!-- Start Menu -->
+    <div id="start-menu">
+        <div id="start-menu-header">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="Start">
+            PotatoOS
+        </div>
+        <div class="start-menu-item" data-window="my-spudputer">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="Spudputer">
+            Spudputer
+        </div>
+        <div class="start-menu-item" data-window="taternet-explorer">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="TaterNet Explorer">
+            TaterNet Explorer
+        </div>
+        <div class="start-menu-item" data-window="mashed-notepad">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="white"/><rect x="4" y="4" width="8" height="1" fill="%23000080"/><rect x="4" y="6" width="8" height="1" fill="%23000080"/><rect x="4" y="8" width="8" height="1" fill="%23000080"/><rect x="4" y="10" width="8" height="1" fill="%23000080"/></svg>' alt="Mashed Notepad">
+            Mashed Notepad
+        </div>
+        <div class="start-menu-item" data-window="tuber-paint">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="white"/><path d="M4,4 L12,12 M12,4 L4,12" stroke="%23000080" stroke-width="2"/></svg>' alt="Tuber Paint">
+            Tuber Paint
+        </div>
+        <div class="start-menu-item" data-window="spuddos-terminal">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="black"/><rect x="4" y="4" width="8" height="1" fill="%23a0a000"/><rect x="4" y="6" width="8" height="1" fill="%23a0a000"/><rect x="4" y="8" width="8" height="1" fill="%23a0a000"/><rect x="4" y="10" width="8" height="1" fill="%23a0a000"/></svg>' alt="SpudDOS Terminal">
+            SpudDOS Terminal
+        </div>
+        <div class="start-menu-separator"></div>
+        <div class="start-menu-item" data-window="potato-exe">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="POTATO.EXE">
+            POTATO.EXE
+        </div>
+        <div class="start-menu-item" data-window="minespudder">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="%23c0c0c0"/><rect x="4" y="4" width="2" height="2" fill="%23000080"/><rect x="7" y="4" width="2" height="2" fill="%23000080"/><rect x="10" y="4" width="2" height="2" fill="%23000080"/><rect x="4" y="7" width="2" height="2" fill="%23000080"/><rect x="7" y="7" width="2" height="2" fill="%23a0a000"/><rect x="10" y="7" width="2" height="2" fill="%23000080"/><rect x="4" y="10" width="2" height="2" fill="%23000080"/><rect x="7" y="10" width="2" height="2" fill="%23000080"/><rect x="10" y="10" width="2" height="2" fill="%23000080"/></svg>' alt="Minespudder">
+            Minespudder
+        </div>
+        <div class="start-menu-item" data-window="sphere">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><circle cx="8" cy="8" r="6" fill="%23a0a000"/></svg>' alt="Sphere">
+            Sphere
+        </div>
+        <div class="start-menu-separator"></div>
+        <div class="start-menu-item" onclick="showTaskManager()">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><rect x="2" y="2" width="12" height="12" fill="white"/><rect x="4" y="4" width="8" height="1" fill="%23000080"/><rect x="4" y="6" width="8" height="1" fill="%23000080"/><rect x="4" y="8" width="8" height="1" fill="%23000080"/><rect x="4" y="10" width="8" height="1" fill="%23000080"/></svg>' alt="Task Manager">
+            Task Manager
+        </div>
+        <div class="start-menu-separator"></div>
+        <div class="start-menu-item" onclick="shutdown()">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,2 L8,8" stroke="%23a0a000" stroke-width="2" fill="none"/><path d="M8,8 A6,6 0 0 1 2,14" stroke="%23a0a000" stroke-width="2" fill="none"/></svg>' alt="Shutdown">
+            Shutdown...
+        </div>
+    </div>
+    
+    <!-- Context Menu -->
+    <div id="context-menu">
+        <div class="context-menu-item" onclick="openSelectedWindow()">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M8,3 L14,3 L14,13 L2,13 L2,7 Z" fill="%23a0a000"/><path d="M2,7 L8,7 L8,3" fill="%23808000"/></svg>' alt="Open">
+            Open
+        </div>
+        <div class="context-menu-item" onclick="exploreSelectedItem()">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M2,3 L6,3 L8,5 L14,5 L14,13 L2,13 Z" fill="%23a0a000"/></svg>' alt="Explore">
+            Explore
+        </div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" onclick="createShortcut()">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M2,3 L6,3 L8,5 L14,5 L14,13 L2,13 Z" fill="%23a0a000"/><path d="M10,7 L14,3 L14,7 L10,3 Z" fill="%23808000"/></svg>' alt="Create Shortcut">
+            Create Shortcut
+        </div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" onclick="potatizeWallpaper()">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><ellipse cx="8" cy="8" rx="6" ry="4" fill="%23a0a000"/><circle cx="5" cy="7" r="1" fill="%23808000"/><circle cx="11" cy="7" r="1" fill="%23808000"/><path d="M5,10 Q8,12 11,10" stroke="%23808000" stroke-width="1" fill="none"/></svg>' alt="Potatize">
+            Potatize Wallpaper
+        </div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" onclick="showProperties()">
+            <img src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="%23000080"/><path d="M2,3 L6,3 L8,5 L14,5 L14,13 L2,13 Z" fill="%23a0a000"/></svg>' alt="Properties">
+            Properties
+        </div>
+    </div>
+    
+    <!-- BSOD -->
+    <div id="bsod">
+        <div id="bsod-title">MASHED POTATO SCREEN</div>
+        <div id="bsod-message">A fatal exception 0E has occurred at 0028:C0011E36 in VXD VMM(01) + 00010E36.
+The current application will be terminated.
+
+*  Press any key to terminate the current application.
+*  Press CTRL+ALT+DEL again to restart your potato. You will lose any unsaved information in all applications.
+
+Error: POTATO_CRITICAL_FAILURE (0x0000001E)
+
+Technical information:
+
+*** STOP: 0x0000001E (0xC0000005, 0xFDE38AF9, 0x00000001, 0x7E8B0EB4)
+***  SPUD.SYS - Address FDE38AF9 base at FDE38000, DateStamp 3d6dd07c</div>
+        <div id="bsod-footer">SpudSoft PotatoOS Kernel Version 4.10.2222</div>
+    </div>
+    
+    <!-- Screensaver -->
+    <div id="screensaver"></div>
+    
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
