@@ -1,5 +1,5 @@
 # PotatoOS by SpudSoft  
-A web-based parody of Windows 95/98, reimagined with potato-foucsed theme. No real potatoes were harmed in the making.
+A web-based parody of Windows 95/98, reimagined with potato-focused theme. No real potatoes were harmed in the making.
 
 ## Features  
 - Interactive potato-themed OS.
